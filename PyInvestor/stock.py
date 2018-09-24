@@ -1,4 +1,4 @@
-from universal import IEX_URL
+from utils import IEX_URL, _endpoint
 import requests
 import pandas as pd
 import collections
@@ -19,31 +19,20 @@ class Stock:
         """Initialization of the class Stock
         """
         self.symbol = symbol.upper()
-        
-
-    def _endpoint(self, endpoint, params={}):
-        """ returns the json related to a particular endpoint of a stock
-        """
-        request_url = "%s/stock/%s/%s"%(IEX_URL, self.symbol, endpoint)
-        response  = requests.get(request_url, params=params)
-        return response.json()
-                
-    def _toDataFrame(self, json_dic):
-        """ Transform the dictionary to a pandas dataframe 
-        """
-        
+        self.key = 'stock'
+                    
     
     def Price(self):
         """ returns a single number, corresponding to the IEX real time price, the 15 minute delayed market price, 
         or the previous close price 
         """
-        return self._endpoint('price')
+        return _endpoint(self.key, self.symbol, 'price')
 
     
     def OHLC(self): 
         """ returns the official open, high, low and close for a given symbol with open and/or close official listing time 
         """
-        response = self._endpoint('ohlc')
+        response = _endpoint(self.key, self.symbol, 'ohlc')
         dic = collections.defaultdict()
         dic[self.symbol] = {}
         dic[self.symbol]['open'] = response['open']['price']
@@ -59,13 +48,13 @@ class Stock:
     def Peers(self):
         """ returns an array of peers defined by IEX
         """
-        return self._endpoint('peers')
+        return _endpoint(self.key, self.symbol, 'peers')
 
     
     def Previous(self):
         """ returns previous day adjusted price data for a single stock
         """
-        response = self._endpoint('previous')
+        response = _endpoint(self.key, self.symbol, 'previous')
         return pd.DataFrame(response, index=[response['symbol']])
 
 
@@ -73,7 +62,7 @@ class Stock:
         """ returns several quoting prices such as calculationPrice, latestPrice, delayedPrice
         Option: displayPercent -- all percentage values will be multiplied by a factor 100
         """
-        response = self._endpoint('quote')
+        response = _endpoint(self.key, self.symbol, 'previous')
         df = pd.DataFrame(response, index=[response['symbol']])
         df = df.drop()
 
