@@ -62,7 +62,7 @@ class Stock:
         """ returns several quoting prices such as calculationPrice, latestPrice, delayedPrice
         Option: displayPercent -- all percentage values will be multiplied by a factor 100
         """
-        response = _endpoint(self.key, self.symbol, 'previous', 'displayPercent'=displayPercent)
+        response = _endpoint(self.key, self.symbol, 'previous', displayPercent)
         return  pd.DataFrame(response, index=[response['symbol']])
 
     

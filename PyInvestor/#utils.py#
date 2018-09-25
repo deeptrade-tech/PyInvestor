@@ -21,5 +21,6 @@ def _endpoint(key, symbol, endpoint, **kwargs):
 
 def _todatedf(df):
     for col in time_columns:
-        if col in df.columns
+        if col in df.columns:
+            df
         
