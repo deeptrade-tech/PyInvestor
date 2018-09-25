@@ -8,6 +8,8 @@ import pandas as pd
 
 
 IEX_URL = "https://api.iextrading.com/1.0" # the universal link to get access to the endpoint
+time_columns = ["openTime","closeTime", "latestUpdate", "iexLastUpdated", "delayedPriceTime",
+                "extendedPriceTime"]    # all the columns that have a timestamp
 
 
 def _endpoint(key, symbol, endpoint, **kwargs):
@@ -17,3 +19,6 @@ def _endpoint(key, symbol, endpoint, **kwargs):
     response =  requests.get(request_url, **kwargs)
     return response.json()
 
+def _todatedf(df):
+    for col in cols:
+        

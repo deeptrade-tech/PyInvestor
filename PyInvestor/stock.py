@@ -62,9 +62,18 @@ class Stock:
         """ returns several quoting prices such as calculationPrice, latestPrice, delayedPrice
         Option: displayPercent -- all percentage values will be multiplied by a factor 100
         """
-        response = _endpoint(self.key, self.symbol, 'previous')
-        df = pd.DataFrame(response, index=[response['symbol']])
-        df = df.drop()
+        response = _endpoint(self.key, self.symbol, 'previous', 'displayPercent'=displayPercent)
+        return  pd.DataFrame(response, index=[response['symbol']])
+
+    
+    def Relevant(self):
+        """ similar to peers endpoint, excep this will return most active market symbols when peers
+        are not available.
+        """
+        response = _endpoint(self.key, self.symbol, 'relevant')
+        return response['symbols']
+
+    
 
 
     
