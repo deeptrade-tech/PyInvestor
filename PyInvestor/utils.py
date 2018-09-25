@@ -9,7 +9,10 @@ import pandas as pd
 
 IEX_URL = "https://api.iextrading.com/1.0" # the universal link to get access to the endpoint
 time_columns = ["openTime","closeTime", "latestUpdate", "iexLastUpdated", "delayedPriceTime",
-                "extendedPriceTime"]    # all the columns that have a timestamp
+                "extendedPriceTime", "lastUpdated"]    # all the columns that have a timestamp
+timerange_split = ['5y', '2y', '1y', 'ytd', '6m', '3m', '1m']  # time range for the splits 
+timerange_chart = ['5y', '2y', '1y', 'ytd', '6m', '3m', '1m', '1d', 'date', 'dynamic']  # time range for the timeseries/charts
+
 
 
 def _endpoint(key, symbol, endpoint, **kwargs):
@@ -19,8 +22,9 @@ def _endpoint(key, symbol, endpoint, **kwargs):
     response =  requests.get(request_url, **kwargs)
     return response.json()
 
-def _todatedf(df):
+
+def _correctdate(df):
     for col in time_columns:
         if col in df.columns:
-            df
+            df[col] = pd.to_datetime(df[col], unit='ms')
         

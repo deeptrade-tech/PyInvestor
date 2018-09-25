@@ -1,13 +1,22 @@
-from utils import IEX_URL, _endpoint
+from utils import IEX_URL, timerange_split, timerange_chart , _endpoint, _correctdate
 import requests
 import pandas as pd
 import collections
 import datetime
+
 """
 TODOs
 
 -  implement a proper way to deal with out of connection requests
 """
+
+
+def SectorPerformance():
+    response = _endpoint('stock', 'market', 'sector-performance')
+    df =  pd.DataFrame(response)
+    df = df.drop(['type'], axis=1)
+    _correctdate(df)
+    return df
 
 
 
@@ -20,15 +29,8 @@ class Stock:
         """
         self.symbol = symbol.upper()
         self.key = 'stock'
-                    
-    
-    def Price(self):
-        """ returns a single number, corresponding to the IEX real time price, the 15 minute delayed market price, 
-        or the previous close price 
-        """
-        return _endpoint(self.key, self.symbol, 'price')
+        
 
-    
     def OHLC(self): 
         """ returns the official open, high, low and close for a given symbol with open and/or close official listing time 
         """
@@ -39,9 +41,10 @@ class Stock:
         dic[self.symbol]['close'] = response['close']['price']
         dic[self.symbol]['high'] = response['high']
         dic[self.symbol]['low'] = response['low']
-        dic[self.symbol]['close_time'] = datetime.datetime.fromtimestamp(response['close']['time'] / 1e3)
-        dic[self.symbol]['open_time'] = datetime.datetime.fromtimestamp(response['open']['time'] / 1e3)
+        dic[self.symbol]['close_time'] = response['close']['time']
+        dic[self.symbol]['open_time'] = response['open']['time']
         df = pd.DataFrame(dic)
+        _correctdate(df)
         return df
 
     
@@ -58,6 +61,13 @@ class Stock:
         return pd.DataFrame(response, index=[response['symbol']])
 
 
+    def Price(self):
+        """ returns a single number, corresponding to the IEX real time price, the 15 minute delayed market price, 
+        or the previous close price 
+        """
+        return _endpoint(self.key, self.symbol, 'price')
+
+
     def Quote(self, displayPercent=False):
         """ returns several quoting prices such as calculationPrice, latestPrice, delayedPrice
         Option: displayPercent -- all percentage values will be multiplied by a factor 100
@@ -67,22 +77,32 @@ class Stock:
 
     
     def Relevant(self):
-        """ similar to peers endpoint, excep this will return most active market symbols when peers
+        """ similar to peers endpoint, except this will return most active market symbols when peers
         are not available.
         """
         response = _endpoint(self.key, self.symbol, 'relevant')
         return response['symbols']
 
-    
+
+    def Splits(self, timerange):
+        """ returns the different splits that occured for a particular range of dates "timerange"
+        """
+        if timerange not in timerange_split:
+            raise ValueError('%s not  a valid value, please enter: "5y", "2y", "1y", "ytd", "6m", "3m", "1m"' %timerange)
+        else:
+            response = _endpoint(self.key, self.symbol, 'splits/%s' %timerange)
+        return pd.DataFrame(response)
 
 
-    
+    def TimeSeries(self, timerange='1m', **kwargs):
+        """ returns the historically adjusted market-wide data based on the timerange.
+            this turns out to be the same as the chart endpoint of IEX API.
+        """
+        if timerange not in timerange_chart:
+            raise ValueError('%s not a valid value, please enter: "5y", "2y", "1y", "ytd", "6m", "3m", "1m", "1d", "date", "dynamic"' %timerange)
+        else:
+            response = _endpoint(self.key, self.symbol, 'time-series/%s' %timerange, **kwargs) # still to check if kwargs work
+        return pd.DataFrame(response)
+            
 
-    
-        
-class StockBatch:
-    """ Gather data from the IEX endpoints for a list of stocks
-    """
-    pass
-    
     
