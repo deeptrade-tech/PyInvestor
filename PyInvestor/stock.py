@@ -102,8 +102,11 @@ class Stock:
 
 
     def News(self, lastndays=10):
-        response = _endpoint(self.key, self.symbol, 'news/last/%s' %lastndays)
-        df = pd.DataFrame(response)
+        if (lastndays > 50) or (lastndays < 1):
+            raise ValueError('Value of last is not correct. It must in between [1,50]')
+        else:
+            response = _endpoint(self.key, self.symbol, 'news/last/%s' %lastndays)
+            df = pd.DataFrame(response)
         return df
     
         
