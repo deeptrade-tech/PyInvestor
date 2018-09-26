@@ -2,7 +2,6 @@ from utils import IEX_URL, timerange_split, timerange_chart , _endpoint, _correc
 import requests
 import pandas as pd
 import collections
-import datetime
 
 """
 TODOs
@@ -199,3 +198,4 @@ class Stock:
     
         
     
+class 
