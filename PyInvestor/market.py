@@ -56,6 +56,12 @@ def MostActive():
     return df
 
 
+def NewsMarket(last):
+    """ Last news on the market. Last must belong between 1 to 50
+    """
+    if (last < 1) or (last > 50):
+        raise ValueError('Wrong value - "last" must be between 1 - 50')
+
 
 
     
