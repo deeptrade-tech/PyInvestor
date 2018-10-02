@@ -23,6 +23,14 @@ def _endpoint(key, symbol, endpoint, **kwargs):
     return response.json()
 
 
+def _endpointmarket(symbol, **kwargs):
+    """ returns the json related to a particular market endpoitn
+    """
+    request_url = "%s/stock/market/%s"%(IEX_URL,symbol)
+    response = requests.get(request_url, **kwargs)
+    return response.json()
+
+
 def _correctdate(df):
     for col in time_columns:
         if col in df.columns:
