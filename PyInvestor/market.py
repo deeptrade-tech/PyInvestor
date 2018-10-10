@@ -1,7 +1,7 @@
 from utils import IEX_URL, _endpointmarket, _correctdate
 import requests
 import pandas as pd
-
+from pandas.io.json import json_normalize
 
 
         
@@ -61,8 +61,22 @@ def NewsMarket(last):
     """
     if (last < 1) or (last > 50):
         raise ValueError('Wrong value - "last" must be between 1 - 50')
-
-
+    else:
+        response = _endpointmarket('news/last/%s' %last)
+        df = pd.DataFrame(response)
+        return df
 
     
+def MarketOHLC():
+    """ Returns the official open and close for a given symbol$
+    
+    - Not yet sure if it is the best to show the data 
+    """
+    response = _endpointmarket('ohlc')
+    df = json_normalize(response)
+    _correctdate(df)
+    return df
+
+
+
     
