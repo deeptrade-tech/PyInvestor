@@ -10,8 +10,7 @@ from pandas.io.json import json_normalize
 #########################################
 """
 
-        
-        
+                
 def Crypto():
     """ returns an array of quotes for all cryptocurrencies supported by the IEX API. 
     """
@@ -26,7 +25,7 @@ def UpcomingIPO():
     """ list of upcoming IPOs scheduled for the current
     and next month. The response has to
     """
-    response = _endpointmarket('today-ipos')
+    response = _endpointmarket('upcoming-ipos')
     rawData = response['rawData']
     viewData = response['viewData']
     df_raw = pd.DataFrame(rawData) # you have to take out some rows
@@ -61,6 +60,7 @@ def Gainers():
     return df
 
 
+
 def Losers():
     """ Biggest loosers in the market
     """
@@ -68,6 +68,7 @@ def Losers():
     df = pd.DataFrame(response)
     _correctdate(df)
     return df
+
 
 
 def MostActive():
@@ -79,8 +80,9 @@ def MostActive():
     return df
 
 
+
 def InFocus():
-    """ In Force market shares
+    """ In Focus market shares
     """
     response = _endpointmarket('list/infocus')
     df = pd.DataFrame(response)
@@ -99,6 +101,7 @@ def NewsMarket(last):
         df = pd.DataFrame(response)
         return df
 
+
     
 def MarketOHLC():
     """ Returns the official open and close for a given symbol$
@@ -111,6 +114,7 @@ def MarketOHLC():
     return df
 
 
+
 def Previous():
     """ Returns previous day adjusted price data for the whole market
     """
@@ -121,6 +125,20 @@ def Previous():
     return df
 
 
+
 def SectorPerformance():
-    """ Returns previous
+    """ Returns previous sector performance
     """
+
+    response = _endpointmarket('sector-performance')
+    df = json_normalize(response)
+    _correctdate(df)
+    return df.drop(['type'], axis=1)
+
+
+
+
+
+
+
+    
