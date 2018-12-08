@@ -118,9 +118,13 @@ def MarketOHLC():
 def Previous():
     """ Returns previous day adjusted price data for the whole market
     """
-
+    
     response = _endpointmarket('previous')
-    df = json_normalize(response)
+    data = []
+    for i in response.keys():
+        data.append(response[i])
+
+    df = pd.DataFrame(data)
     _correctdate(df)
     return df
 
