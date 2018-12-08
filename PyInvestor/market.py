@@ -4,6 +4,12 @@ import pandas as pd
 from pandas.io.json import json_normalize
 
 
+"""
+#########################################
+/!\ Still needs to do the batch querying
+#########################################
+"""
+
         
         
 def Crypto():
@@ -14,9 +20,10 @@ def Crypto():
     _correctdate(df)
     return df
 
+
     
-def IPO():
-    """ list of upcoming or today IPOs scheduled for the current
+def UpcomingIPO():
+    """ list of upcoming IPOs scheduled for the current
     and next month. The response has to
     """
     response = _endpointmarket('today-ipos')
@@ -27,6 +34,22 @@ def IPO():
     _correctdate(df_raw)
     _correctdate(df_view)
     return df_raw, df_view
+
+
+
+def TodayIPO():
+    """ list of today IPOs scheduled for the current
+    and next month. The response has to
+    """
+    response = _endpointmarket('today-ipos')
+    rawData = response['rawData']
+    viewData = response['viewData']
+    df_raw = pd.DataFrame(rawData) # you have to take out some rows
+    df_view =  pd.DataFrame(viewData)
+    _correctdate(df_raw)
+    _correctdate(df_view)
+    return df_raw, df_view
+
 
 
 def Gainers():
@@ -56,6 +79,16 @@ def MostActive():
     return df
 
 
+def InFocus():
+    """ In Force market shares
+    """
+    response = _endpointmarket('list/infocus')
+    df = pd.DataFrame(response)
+    _correctdate(df)
+    return df
+
+
+
 def NewsMarket(last):
     """ Last news on the market. Last must belong between 1 to 50
     """
@@ -78,5 +111,16 @@ def MarketOHLC():
     return df
 
 
+def Previous():
+    """ Returns previous day adjusted price data for the whole market
+    """
 
-    
+    response = _endpointmarket('previous')
+    df = json_normalize(response)
+    _correctdate(df)
+    return df
+
+
+def SectorPerformance():
+    """ Returns previous
+    """
