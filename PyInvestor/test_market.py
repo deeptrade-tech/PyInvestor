@@ -1,5 +1,5 @@
 import unittest
-from market import *
+from PyInvestor.market import *
 
 class MarketTest(unittest.TestCase):
 

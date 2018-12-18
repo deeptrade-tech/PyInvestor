@@ -1,5 +1,5 @@
 import unittest
-from stock import SectorPerformance, Stock
+from PyInvestor.stock import SectorPerformance, Stock
 
 
 class StockTest(unittest.TestCase):

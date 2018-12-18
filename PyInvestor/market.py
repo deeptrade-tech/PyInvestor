@@ -1,14 +1,9 @@
-from utils import IEX_URL, _endpointmarket, _correctdate
+from PyInvestor.utils import IEX_URL, _endpointmarket, _correctdate
 import requests
 import pandas as pd
 from pandas.io.json import json_normalize
 
 
-"""
-#########################################
-/!\ Still needs to do the batch querying
-#########################################
-"""
 
                 
 def Crypto():

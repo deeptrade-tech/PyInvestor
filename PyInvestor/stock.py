@@ -1,4 +1,4 @@
-from utils import IEX_URL, timerange_split, timerange_chart , _endpoint, _correctdate
+from PyInvestor.utils import IEX_URL, timerange_split, timerange_chart , _endpoint, _correctdate
 import requests
 import pandas as pd
 import collections
