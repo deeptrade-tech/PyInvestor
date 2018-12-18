@@ -1,12 +1,8 @@
-from utils import IEX_URL, _endpointmarket, _correctdate
+from .utils import IEX_URL, _endpointmarket, _correctdate
 import requests
 import pandas as pd
 from pandas.io.json import json_normalize
 
-<<<<<<< HEAD
-        
-        
-=======
 
 """
 #########################################
@@ -15,7 +11,6 @@ from pandas.io.json import json_normalize
 """
 
                 
->>>>>>> 18fcc62b8bc217e41700f31fa170139ea836c969
 def Crypto():
     """ returns an array of quotes for all cryptocurrencies supported by the IEX API. 
     """
