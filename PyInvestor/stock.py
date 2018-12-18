@@ -43,7 +43,7 @@ class Stock:
         """ returns the 15 minute delayed market quote 
         """
         response = _endpoint(self.key, self.symbol, 'delayed-quote')
-        df = pd.DataFrame(response)
+        df = pd.Series(response).to_frame().T
         _correctdate(df)
         return df
 
@@ -88,7 +88,7 @@ class Stock:
         """ returns certain important number in relation with a stock
         """
         response = _endpoint(self.key, self.symbol, 'stats')
-        return pd.DataFrame(response['stats'])
+        return pd.Series(response).to_frame().T
 
     
     def LargestTrades(self):
@@ -126,12 +126,6 @@ class Stock:
         return df
 
     
-    def Peers(self):
-        """ returns an array of peers defined by IEX
-        """
-        return _endpoint(self.key, self.symbol, 'peers')
-
-    
     def Previous(self):
         """ returns previous day adjusted price data for a single stock
         """
@@ -150,8 +144,13 @@ class Stock:
         """ returns several quoting prices such as calculationPrice, latestPrice, delayedPrice
         Option: displayPercent -- all percentage values will be multiplied by a factor 100
         """
-        response = _endpoint(self.key, self.symbol, 'previous', displayPercent)
-        return  pd.DataFrame(response, index=[response['symbol']])
+        if displayPercent == False:
+            response = _endpoint(self.key, self.symbol, 'quote')
+        else:
+            response = _endpoint(self.key, self.symbol, 'quote?displayPercent=true')
+        df = pd.Series(response).to_frame().T
+        _correctdate(df)
+        return df
 
     
     def Relevant(self):
