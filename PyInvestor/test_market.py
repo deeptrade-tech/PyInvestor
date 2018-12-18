@@ -1,50 +1,51 @@
 import unittest
+from market import *
 
 class MarketTest(unittest.TestCase):
 
 
     def test_crypto(self):
-        pass
+        Crypto()
 
     
     def test_upcomingipo(self):
-        pass
+        UpcomingIPO()
 
     
     def test_todayipo(self):
-        pass
+        TodayIPO()
 
     
     def test_gainers(self):
-        pass
+        Gainers()
 
     
     def test_losers(self):
-        pass
+        Losers()
 
 
     def test_mostactive(self):
-        pass
+        MostActive()
 
 
     def test_infocus(self):
-        pass
+        InFocus()
 
 
     def test_newsmarket(self):
-        pass
+        NewsMarket(last=50)
 
 
     def test_marketohlc(self):
-        pass
+        MarketOHLC()
 
 
     def test_previous(self):
-        pass
+        Previous()
 
 
     def test_sectorperformance(self):
-        pass
+        SectorPerformance()
 
     
 
