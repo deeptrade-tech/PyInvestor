@@ -3,8 +3,19 @@ import requests
 import pandas as pd
 from pandas.io.json import json_normalize
 
+<<<<<<< HEAD
         
         
+=======
+
+"""
+#########################################
+/!\ Still needs to do the batch querying
+#########################################
+"""
+
+                
+>>>>>>> 18fcc62b8bc217e41700f31fa170139ea836c969
 def Crypto():
     """ returns an array of quotes for all cryptocurrencies supported by the IEX API. 
     """
@@ -13,9 +24,25 @@ def Crypto():
     _correctdate(df)
     return df
 
+
     
-def IPO():
-    """ list of upcoming or today IPOs scheduled for the current
+def UpcomingIPO():
+    """ list of upcoming IPOs scheduled for the current
+    and next month. The response has to
+    """
+    response = _endpointmarket('upcoming-ipos')
+    rawData = response['rawData']
+    viewData = response['viewData']
+    df_raw = pd.DataFrame(rawData) # you have to take out some rows
+    df_view =  pd.DataFrame(viewData)
+    _correctdate(df_raw)
+    _correctdate(df_view)
+    return df_raw, df_view
+
+
+
+def TodayIPO():
+    """ list of today IPOs scheduled for the current
     and next month. The response has to
     """
     response = _endpointmarket('today-ipos')
@@ -28,6 +55,7 @@ def IPO():
     return df_raw, df_view
 
 
+
 def Gainers():
     """ Biggest gainers in the market
     """
@@ -35,6 +63,7 @@ def Gainers():
     df = pd.DataFrame(response)
     _correctdate(df)
     return df
+
 
 
 def Losers():
@@ -46,6 +75,7 @@ def Losers():
     return df
 
 
+
 def MostActive():
     """ Most actively traded in the market
     """
@@ -53,6 +83,17 @@ def MostActive():
     df = pd.DataFrame(response)
     _correctdate(df)
     return df
+
+
+
+def InFocus():
+    """ In Focus market shares
+    """
+    response = _endpointmarket('list/infocus')
+    df = pd.DataFrame(response)
+    _correctdate(df)
+    return df
+
 
 
 def NewsMarket(last):
@@ -65,6 +106,7 @@ def NewsMarket(last):
         df = pd.DataFrame(response)
         return df
 
+
     
 def MarketOHLC():
     """ Returns the official open and close for a given symbol$
@@ -75,6 +117,36 @@ def MarketOHLC():
     df = json_normalize(response)
     _correctdate(df)
     return df
+
+
+
+def Previous():
+    """ Returns previous day adjusted price data for the whole market
+    """
+    
+    response = _endpointmarket('previous')
+    data = []
+    for i in response.keys():
+        data.append(response[i])
+
+    df = pd.DataFrame(data)
+    _correctdate(df)
+    return df
+
+
+
+def SectorPerformance():
+    """ Returns previous sector performance
+    """
+
+    response = _endpointmarket('sector-performance')
+    df = json_normalize(response)
+    _correctdate(df)
+    return df.drop(['type'], axis=1)
+
+
+
+
 
 
 
