@@ -2,7 +2,8 @@
 ---
 
 
-[![license](https://img.shields.io/SamurAi-sarl/PyInvestor.svg?maxAge=2592000)]()
+
+[![](https://img.shields.io/github/license/:user/:repo.svg)](https://github.com/SamurAi-sarl/PyInvestor)
 
 
 PyInvestor is a python wrapper for the IEX package.
