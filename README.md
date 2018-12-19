@@ -11,3 +11,9 @@ PyInvestor is a python wrapper for the IEX package.
 
 ## Basic Installation
 
+
+* __Python >=3.6__
+
+``` bash
+pip install pyinvestor
+```
