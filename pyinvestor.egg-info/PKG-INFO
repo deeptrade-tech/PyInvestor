@@ -1,0 +1,22 @@
+Metadata-Version: 1.0
+Name: pyinvestor
+Version: 0.0.1
+Summary: python wrapper for the IEX API
+Home-page: https://github.com/SamurAi-sarl/PyInvestor
+Author: SamurAI Sarl (Fabio Capela)
+Author-email: fabio.capela@samurai.team
+License: Apache-2.0
+Description: # PyInvestor
+        
+        [![](https://travis-ci.com/SamurAi-sarl/PyInvestor.svg?token=1ybw2N4PGqXLfqpxx5kG&branch=master)]()
+        [![](https://img.shields.io/github/license/SamurAi-sarl/PyInvestor.svg)](https://github.com/SamurAi-sarl/PyInvestor)
+        
+        
+        PyInvestor is a python wrapper for the IEX package.
+        
+        ## What is PyInvestor
+        .....
+        
+        ## Basic Installation
+Keywords: finance,trading,stock,IEX,API,market
+Platform: UNKNOWN
