@@ -1,14 +1,10 @@
 import unittest
-from PyInvestor.stock import SectorPerformance, Stock
+from PyInvestor.stock import Stock
 
 
 class StockTest(unittest.TestCase):
     
-    
-    def test_sectorperformance(self):
-        SectorPerformance()
-
-    
+        
     def test_company(self):
         AMZN = Stock('AMZN')
         AMZN.Company()

@@ -2,7 +2,8 @@
 
 # Market methods
 These are the different methods that are
-already implemented in the library *PyInvestor*. 
+already implemented in the library *PyInvestor*
+at the market level.
 
 
 ### `Crypto`
@@ -80,8 +81,7 @@ market.Losers()
 
 __Aim__
 
-> 
-> 
+> 10 most active quotes
 
 __Example__
 
@@ -94,6 +94,8 @@ market.MostActive()
 
 __Aim__
 
+> 10 quotes in focus
+
 __Example__
 
 ``` python
@@ -101,10 +103,11 @@ from PyInvestor import market
 market.InFocus()
 ```
 
-
 ### `NewsMarket`
 
 __Aim__
+
+> Get market-wide news.
 
 __Example__
 
@@ -116,6 +119,9 @@ market.NewsMarket()
 ### `MarketOHLC`
 
 __Aim__
+
+> Returns the official open and
+> close for symbols.
 
 __Example__
 

@@ -10,14 +10,6 @@ TODOs
 """
 
 
-def SectorPerformance():
-    response = _endpoint('stock', 'market', 'sector-performance')
-    df =  pd.DataFrame(response)
-    df = df.drop(['type'], axis=1)
-    _correctdate(df)
-    return df
-
-
 
 class Stock:
     """Gathers data from the IEX endpoints for only one stock
@@ -176,14 +168,14 @@ class Stock:
         return response['tags']
 
     
-    def TimeSeries(self, timerange='1m', **kwargs):
+    def TimeSeries(self, timerange='1m'):
         """ returns the historically adjusted market-wide data based on the timerange.
             this turns out to be the same as the chart endpoint of IEX API.
         """
         if timerange not in timerange_chart:
             raise ValueError('%s not a valid value, please enter: "5y", "2y", "1y", "ytd", "6m", "3m", "1m", "1d", "date", "dynamic"' %timerange)
         else:
-            response = _endpoint(self.key, self.symbol, 'time-series/%s' %timerange, **kwargs) # still to check if kwargs work
+            response = _endpoint(self.key, self.symbol, 'time-series/%s' %timerange) # still to check if kwargs work
         return pd.DataFrame(response)
             
 
