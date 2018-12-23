@@ -1,10 +1,17 @@
 
 
 # Market methods
+These are the different methods that are
+already implemented in the library *PyInvestor*. 
 
-### `Crypto()`
+
+### `Crypto`
 
 __Aim__
+
+> This will return an array of quotes for all
+> Cryptocurrencies supported by the IEX API.
+
 
 __Example__
 
@@ -13,9 +20,12 @@ from PyInvestor import market
 market.Crypto()
 ```
 
-### `UpcomingIPO()`
+### `UpcomingIPO`
 
 __Aim__
+
+> This returns a list of upcoming IPOs scheduled
+> for the current and next month. 
 
 __Example__
 
@@ -24,9 +34,12 @@ from PyInvestor import market
 market.UpcomingIPO()
 ```
 
-### `TodayIPO()`
+### `TodayIPO`
 
 __Aim__
+
+> This returns a list of today's IPOs scheduled 
+> for the current and next month.
 
 __Example__
 
@@ -35,9 +48,12 @@ from PyInvestor import market
 market.TodayIPO()
 ```
 
-### `Gainers()`
+### `Gainers`
 
 __Aim__
+
+> List of stocks that got the best performances 
+> in percent. 
 
 __Example__
 
@@ -46,9 +62,12 @@ from PyInvestor import market
 market.Gainers()
 ```
 
-### `Losers()`
+### `Losers`
 
 __Aim__
+
+> List of stocks that got the worst performances
+> in percent.
 
 __Example__
 
@@ -57,9 +76,12 @@ from PyInvestor import market
 market.Losers()
 ```
 
-### `MostActive()`
+### `MostActive`
 
 __Aim__
+
+> 
+> 
 
 __Example__
 
@@ -68,7 +90,7 @@ from PyInvestor import market
 market.MostActive()
 ```
 
-### `InFocus()`
+### `InFocus`
 
 __Aim__
 
@@ -80,7 +102,7 @@ market.InFocus()
 ```
 
 
-### `NewsMarket()`
+### `NewsMarket`
 
 __Aim__
 
@@ -91,18 +113,7 @@ from PyInvestor import market
 market.NewsMarket()
 ```
 
-### `NewsMarket()`
-
-__Aim__
-
-__Example__
-
-``` python
-from PyInvestor import market
-market.NewsMarket()
-```
-
-### `MarketOHLC()`
+### `MarketOHLC`
 
 __Aim__
 
@@ -113,9 +124,13 @@ from PyInvestor import market
 market.MarketOHLC()
 ```
 
-### `Previous()`
+### `Previous`
 
 __Aim__
+
+> Returns previous day 
+> an object keyed symbol of price
+> data for the whole market. 
 
 __Example__
 
@@ -124,9 +139,12 @@ from PyInvestor import market
 market.Previous()
 ```
 
-### `SectorPerformance()`
+### `SectorPerformance`
 
 __Aim__
+
+> Returns an array of each sector and performance for the
+> current trading day. 
 
 __Example__
 

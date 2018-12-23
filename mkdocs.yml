@@ -1,0 +1,6 @@
+site_name: PyInvestor
+nav:
+    - Home: index.md
+    - Market: market.md
+    - Stock: stock.md
+theme: readthedocs
