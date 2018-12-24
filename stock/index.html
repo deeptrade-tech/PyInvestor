@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>Stock - PyInvestor</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Stock";
+    var mkdocs_page_input_path = "stock.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> PyInvestor</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="..">Home</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../market/">Market</a>
+	    </li>
+          
+            <li class="toctree-l1 current">
+		
+    <a class="current" href="./">Stock</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l2"><a href="#stock-methods">Stock methods</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l3" href="#company">Company</a></li>
+        
+            <li><a class="toctree-l3" href="#delayedquote">DelayedQuote</a></li>
+        
+            <li><a class="toctree-l3" href="#dividends">Dividends</a></li>
+        
+            <li><a class="toctree-l3" href="#earnings">Earnings</a></li>
+        
+            <li><a class="toctree-l3" href="#effectivespread">EffectiveSpread</a></li>
+        
+            <li><a class="toctree-l3" href="#financials">Financials</a></li>
+        
+            <li><a class="toctree-l3" href="#stats">Stats</a></li>
+        
+            <li><a class="toctree-l3" href="#largesttrades">LargestTrades</a></li>
+        
+            <li><a class="toctree-l3" href="#news">News</a></li>
+        
+            <li><a class="toctree-l3" href="#ohlc">OHLC</a></li>
+        
+            <li><a class="toctree-l3" href="#previous">Previous</a></li>
+        
+            <li><a class="toctree-l3" href="#price">Price</a></li>
+        
+            <li><a class="toctree-l3" href="#quote">Quote</a></li>
+        
+            <li><a class="toctree-l3" href="#relevant">Relevant</a></li>
+        
+            <li><a class="toctree-l3" href="#splits">Splits</a></li>
+        
+            <li><a class="toctree-l3" href="#tags">Tags</a></li>
+        
+            <li><a class="toctree-l3" href="#timeseries">TimeSeries</a></li>
+        
+            <li><a class="toctree-l3" href="#volumebyvenue">VolumebyVenue</a></li>
+        
+        </ul>
+    
+
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">PyInvestor</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Stock</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="stock-methods">Stock methods</h1>
+<p>These are the different methods that are
+already implemented in the library <em>PyInvestor</em>
+at the stock level.</p>
+<h3 id="company"><code>Company</code></h3>
+<p><strong>Aim</strong></p>
+<blockquote>
+<p>Returns information related to the company</p>
+</blockquote>
+<p><strong>Example</strong></p>
+<pre><code class="python">from PyInvestor.stock import Stock
+AMZN = Stock('AMZN')
+AMZN.Company()
+</code></pre>
+
+<h3 id="delayedquote"><code>DelayedQuote</code></h3>
+<p><strong>Aim</strong></p>
+<blockquote>
+<p>Returns 15 minute delayed market quote</p>
+</blockquote>
+<p><strong>Example</strong></p>
+<pre><code class="python">from PyInvestor.stock import Stock
+AMZN = Stock('AMZN')
+AMZN.DelayedQuote()
+</code></pre>
+
+<h3 id="dividends"><code>Dividends</code></h3>
+<p><strong>Aim</strong></p>
+<blockquote>
+<p>Returns the historical dividends based on 
+on the historical market data</p>
+</blockquote>
+<p><strong>Example</strong></p>
+<pre><code class="python">from PyInvestor.stock import Stock
+AMZN = Stock('AMZN')
+AMZN.Dividends()
+</code></pre>
+
+<p><strong>Option</strong></p>
+<ul>
+<li>timerange: value in ["5y", "2y", "1y", "ytd", "6m", "3m", "1m"]</li>
+</ul>
+<h3 id="earnings"><code>Earnings</code></h3>
+<p><strong>Aim</strong></p>
+<blockquote>
+<p>Returns data from the four most<br />
+recent reported quarters</p>
+</blockquote>
+<p><strong>Example</strong></p>
+<pre><code class="python">from PyInvestor.stock import Stock
+AMZN = Stock('AMZN')
+AMZN.Earnings()
+</code></pre>
+
+<h3 id="effectivespread"><code>EffectiveSpread</code></h3>
+<p><strong>Aim</strong></p>
+<blockquote>
+<p>Returns an array of effective spread, 
+eligible volume, and prive improvement of
+a stock, by market. Effective spread is 
+designed to measure marketable orders 
+executable in relation to the market center's
+quoted spread and takes into account hidden 
+and midpoint liquidity available at each 
+market center.</p>
+</blockquote>
+<p><strong>Example</strong></p>
+<pre><code class="python">from PyInvestor.stock import Stock
+AMZN = Stock('AMZN')
+AMZN.EffectiveSpread()
+</code></pre>
+
+<h3 id="financials"><code>Financials</code></h3>
+<p><strong>Aim</strong></p>
+<blockquote>
+<p>Returns income statement, balance sheet, 
+and cash flow data from the four most 
+recent reported quarters.</p>
+</blockquote>
+<p><strong>Example</strong></p>
+<pre><code class="python">from PyInvestor.stock import Stock
+AMZN = Stock('AMZN')
+AMZN.Financials()
+</code></pre>
+
+<h3 id="stats"><code>Stats</code></h3>
+<p><strong>Aim</strong></p>
+<blockquote>
+<p>Returns certain important numbers in
+relation with a stock.</p>
+</blockquote>
+<p><strong>Example</strong></p>
+<pre><code class="python">from PyInvestor.stock import Stock
+AMZN = Stock('AMZN')
+AMZN.Stats()
+</code></pre>
+
+<h3 id="largesttrades"><code>LargestTrades</code></h3>
+<p><strong>Aim</strong></p>
+<blockquote>
+<p>Returns 15 min delayed, last sale eligible trades</p>
+</blockquote>
+<p><strong>Example</strong></p>
+<pre><code class="python">from PyInvestor.stock import Stock
+AMZN = Stock('AMZN')
+AMZN.LargestTrades()
+</code></pre>
+
+<h3 id="news"><code>News</code></h3>
+<p><strong>Aim</strong></p>
+<blockquote>
+<p>Returns stock related news for a certain number
+of last days.</p>
+</blockquote>
+<p><strong>Example</strong></p>
+<pre><code class="python">from PyInvestor.stock import Stock
+AMZN = Stock('AMZN')
+AMZN.News(lastndays=5)
+</code></pre>
+
+<p><strong>Options</strong></p>
+<ul>
+<li>lastndays: value betwen 1 and 50</li>
+</ul>
+<h3 id="ohlc"><code>OHLC</code></h3>
+<p><strong>Aim</strong></p>
+<blockquote>
+<p>Returns the official open, high, low and close
+for a given symbol with open and/or close official
+listing time</p>
+</blockquote>
+<p><strong>Example</strong></p>
+<pre><code class="python">from PyInvestor.stock import Stock
+AMZN = Stock('AMZN')
+AMZN.OHLC()
+</code></pre>
+
+<h3 id="previous"><code>Previous</code></h3>
+<p><strong>Aim</strong></p>
+<blockquote>
+<p>Returns previous day adjusted price data for 
+a single stock</p>
+</blockquote>
+<p><strong>Example</strong></p>
+<pre><code class="python">from PyInvestor.stock import Stock
+AMZN = Stock('AMZN')
+AMZN.Previous()
+</code></pre>
+
+<h3 id="price"><code>Price</code></h3>
+<p><strong>Aim</strong></p>
+<blockquote>
+<p>Returns a single number, corresponding to the 
+IEX real time price, the 15 minute delayed market
+price, or the previous close price. </p>
+</blockquote>
+<p><strong>Example</strong></p>
+<pre><code class="python">from PyInvestor.stock import Stock
+AMZN = Stock('AMZN')
+AMZN.Price()
+</code></pre>
+
+<h3 id="quote"><code>Quote</code></h3>
+<p><strong>Aim</strong></p>
+<blockquote>
+<p>Returns several quoting prices such as 
+calculationPrice, latestPrice, delayedPrice.</p>
+</blockquote>
+<p><strong>Example</strong></p>
+<pre><code class="python">from PyInvestor.stock import Stock
+AMZN = Stock('AMZN')
+AMZN.Quote()
+</code></pre>
+
+<p><strong>Option</strong></p>
+<ul>
+<li>displayPercent: all percentage values will
+   be multiplied by a factor 100</li>
+</ul>
+<h3 id="relevant"><code>Relevant</code></h3>
+<p><strong>Aim</strong></p>
+<blockquote>
+<p>This will return the most active market 
+symbols.</p>
+</blockquote>
+<p><strong>Example</strong></p>
+<pre><code class="python">from PyInvestor.stock import Stock
+AMZN = Stock('AMZN')
+AMZN.Relevant()
+</code></pre>
+
+<h3 id="splits"><code>Splits</code></h3>
+<p><strong>Aim</strong></p>
+<blockquote>
+<p>Returns the different splits that occured
+for a particular range of dates "timerange"</p>
+</blockquote>
+<p><strong>Example</strong></p>
+<pre><code class="python">from PyInvestor.stock import Stock
+AMZN = Stock('AMZN')
+AMZN.Splits(timerange = '1m')
+</code></pre>
+
+<p><strong>Option</strong></p>
+<ul>
+<li>timerange: value in ["5y", "2y", "1y", "ytd", "6m", "3m", "1m"]</li>
+</ul>
+<h3 id="tags"><code>Tags</code></h3>
+<p><strong>Aim</strong></p>
+<blockquote>
+<p>Get the tags related to a particular stock</p>
+</blockquote>
+<p><strong>Example</strong></p>
+<pre><code class="python">from PyInvestor.stock import Stock
+AMZN = Stock('AMZN')
+AMZN.Tags()
+</code></pre>
+
+<h3 id="timeseries"><code>TimeSeries</code></h3>
+<p><strong>Aim</strong></p>
+<blockquote>
+<p>Returns the historically adjusted market-wide
+data based on the timerange. </p>
+</blockquote>
+<p><strong>Example</strong></p>
+<pre><code class="python">from PyInvestor.stock import Stock
+AMZN = Stock('AMZN')
+AMZN.TimeSeries()
+</code></pre>
+
+<p><strong>Option</strong></p>
+<ul>
+<li>timerange: value in ["5y", "2y", "1y", "ytd", "6m", "3m", "1m"]</li>
+</ul>
+<h3 id="volumebyvenue"><code>VolumebyVenue</code></h3>
+<p><strong>Aim</strong></p>
+<blockquote>
+<p>Returns 15 min delayed and 30 day average consolidation
+volume percentage of a stock, by market. This call will
+always return 13 values, and will be sorted in ascending
+order by current day trading volume percentage. </p>
+</blockquote>
+<p><strong>Example</strong></p>
+<pre><code class="python">from PyInvestor.stock import Stock
+AMZN = Stock('AMZN')
+AMZN.VolumebyVenue()
+</code></pre>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="../market/" class="btn btn-neutral" title="Market"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../market/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+
+</body>
+</html>
