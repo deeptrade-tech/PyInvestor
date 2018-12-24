@@ -6,8 +6,12 @@ PyInvestor is a python wrapper for the IEX API.
 [![](https://travis-ci.com/SamurAi-sarl/PyInvestor.svg?token=1ybw2N4PGqXLfqpxx5kG&branch=master)]()
 [![](https://img.shields.io/github/license/SamurAi-sarl/PyInvestor.svg)](https://github.com/SamurAi-sarl/PyInvestor)
 ![Python 3.6](https://img.shields.io/badge/Python-3.6-blue.svg)
+[![Documentation Status](https://readthedocs.org/projects/ansicolortags/badge/?version=latest)](https://samurai-sarl.github.io/PyInvestor/)
 
+## Documentation
 
+The documentation related to the details of the different methods of **PyInvestor** is found here:
+[https://samurai-sarl.github.io/PyInvestor/](https://samurai-sarl.github.io/PyInvestor/) 
 
 
 ## Features
@@ -59,12 +63,18 @@ AMZN.Earnings()
 
 ## Todos
 
+| API      | Started Integration                       |
+|----------|------------------------------------------  |
+| IEX      | [![IEX](http://progressed.io/bar/75)]()   |
+| Quandl   | [![Quandl](http://progressed.io/bar/0)]() |
+| News API | [![Quandl](http://progressed.io/bar/0)]() |
+
 
 
 ## Legal
 
-As **PyInvestor** is a wrapper for the IEX API, we must provide:
+As **PyInvestor** is a wrapper for the IEX API, we have to say that
 
-a. Data provided  for free by [IEX](https://iextrading.com/developer/). 
-View [IEX's Terms of Use](https://iextrading.com/api-exhibit-a/)
+> Data is provided  for free by [IEX](https://iextrading.com/developer/). 
+> View [IEX's Terms of Use](https://iextrading.com/api-exhibit-a/)
 
