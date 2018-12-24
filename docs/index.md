@@ -78,3 +78,6 @@ As **PyInvestor** is a wrapper for the IEX API, we have to say that
 > Data is provided  for free by [IEX](https://iextrading.com/developer/). 
 > View [IEX's Terms of Use](https://iextrading.com/api-exhibit-a/)
 
+## Developers
+Made with :heart: by [SamurAI](https://www.samurai.team/). Follow us on [Linkedin](https://www.linkedin.com/company/samurai-team/) to get the latest news first!
+We're always happy to receive your feedback!
