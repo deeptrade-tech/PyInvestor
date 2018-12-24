@@ -35,7 +35,7 @@ __SectorPerformance__
 from PyInvestor import market
 market.SectorPerformance()
 ```
-![text]('/docs/market.gif')
+![text](/docs/market.gif)
 
 
 ### Stock
