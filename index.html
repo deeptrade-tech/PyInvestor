@@ -63,9 +63,11 @@
         
             <li><a class="toctree-l3" href="#installation">Installation</a></li>
         
-            <li><a class="toctree-l3" href="#example">Example</a></li>
+            <li><a class="toctree-l3" href="#examples">Examples</a></li>
         
             <li><a class="toctree-l3" href="#todos">Todos</a></li>
+        
+            <li><a class="toctree-l3" href="#legal">Legal</a></li>
         
         </ul>
     
@@ -121,9 +123,15 @@
 <a href="https://github.com/SamurAi-sarl/PyInvestor"><img alt="" src="https://img.shields.io/github/license/SamurAi-sarl/PyInvestor.svg" /></a>
 <img alt="Python 3.6" src="https://img.shields.io/badge/Python-3.6-blue.svg" /></p>
 <h2 id="features">Features</h2>
-<p>As of now, <em>PyInvestor</em> is a wrapper for the IEX API. However, 
+<p>As of now, <strong>PyInvestor</strong> is a wrapper for the IEX API. However, 
 we have the ambition to grow it and integrate several financial
-APIs into one single Python library, <em>PyInvestor</em>.</p>
+APIs into one single Python library, <strong>PyInvestor</strong>.</p>
+<ul>
+<li>IEX Stocks app using the stocks endpoint;</li>
+<li>Access to the OHLC of more than 7k stocks;</li>
+<li>Get relevant news at the stock level;</li>
+<li>Access to fundamental data such as dividends, earnings, etc.</li>
+</ul>
 <h2 id="dependencies">Dependencies</h2>
 <ul>
 <li>Pandas</li>
@@ -133,15 +141,27 @@ APIs into one single Python library, <em>PyInvestor</em>.</p>
 <pre><code class="bash">pip install pyinvestor
 </code></pre>
 
-<h2 id="example">Example</h2>
+<h2 id="examples">Examples</h2>
 <h3 id="market">Market</h3>
 <p><strong>SectorPerformance</strong></p>
 <pre><code class="python">from PyInvestor import market
 market.SectorPerformance()
 </code></pre>
 
+<p><img alt="text" src="./docs/market.gif" /></p>
 <h3 id="stock">Stock</h3>
+<p><strong>Earnings</strong></p>
+<pre><code class="python">from PyInvestor.stock import Stock
+AMZN = Stock('AMZN')
+AMZN.Earnings()
+</code></pre>
+
+<p><img alt="text" src="./docs/stock.gif" /></p>
 <h2 id="todos">Todos</h2>
+<h2 id="legal">Legal</h2>
+<p>As <strong>PyInvestor</strong> is a wrapper for the IEX API, we must provide:</p>
+<p>a. Data provided  for free by <a href="https://iextrading.com/developer/">IEX</a>. 
+View <a href="https://iextrading.com/api-exhibit-a/">IEX's Terms of Use</a></p>
               
             </div>
           </div>
@@ -190,5 +210,5 @@ market.SectorPerformance()
 
 <!--
 MkDocs version : 1.0.4
-Build Date UTC : 2018-12-24 14:31:24
+Build Date UTC : 2018-12-24 14:33:40
 -->
