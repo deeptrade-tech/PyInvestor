@@ -63,7 +63,7 @@ AMZN.Earnings()
 
 ## Todos
 
-| API      | Started Integration                       |
+| API      | Integration                               |
 |----------|------------------------------------------  |
 | IEX      | [![IEX](http://progressed.io/bar/75)]()   |
 | Quandl   | [![Quandl](http://progressed.io/bar/0)]() |
