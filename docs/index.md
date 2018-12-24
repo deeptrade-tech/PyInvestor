@@ -43,7 +43,7 @@ __SectorPerformance__
 from PyInvestor import market
 market.SectorPerformance()
 ```
-![text](./docs/market.gif)
+![text](market.gif)
 
 
 ### Stock
@@ -55,7 +55,7 @@ from PyInvestor.stock import Stock
 AMZN = Stock('AMZN')
 AMZN.Earnings()
 ```
-![text](./docs/stock.gif)
+![text](stock.gif)
 
 ## Todos
 
