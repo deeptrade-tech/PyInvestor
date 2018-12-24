@@ -44,7 +44,8 @@ __Earnings__
 
 ```python
 from PyInvestor.stock import Stock
-Stock.Earnings()
+AMZN = Stock('AMZN')
+AMZN.Earnings()
 ```
 ![text](./docs/stock.gif)
 
