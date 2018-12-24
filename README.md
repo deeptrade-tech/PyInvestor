@@ -25,7 +25,7 @@ APIs into one single Python library, *PyInvestor*.
 pip install pyinvestor
 ```
 
-## Example
+## Examples
 
 ### Market
 
@@ -35,7 +35,7 @@ __SectorPerformance__
 from PyInvestor import market
 market.SectorPerformance()
 ```
-![text](/docs/market.gif)
+![text](./docs/market.gif)
 
 
 ### Stock
@@ -46,7 +46,7 @@ __Earnings__
 from PyInvestor.stock import Stock
 Stock.Earnings()
 ```
-
+![text](./docs/stock.gif)
 
 ## Todos
 
