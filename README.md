@@ -35,6 +35,8 @@ __SectorPerformance__
 from PyInvestor import market
 market.SectorPerformance()
 ```
+![text]('./docs/market.gif')
+
 
 ### Stock
 
@@ -44,6 +46,7 @@ __Earnings__
 from PyInvestor.stock import Stock
 Stock.Earnings()
 ```
+
 
 ## Todos
 
