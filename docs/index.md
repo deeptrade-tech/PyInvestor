@@ -21,17 +21,25 @@ APIs into one single Python library, *PyInvestor*.
 
 ## Installation
 
-
-* __Python >=3.6__
-
 ``` bash
 pip install pyinvestor
 ```
 
-## Usage
+## Example
+
+### Market
+
+__SectorPerformance__
+
+``` python
+from PyInvestor import market
+market.SectorPerformance()
+```
+
+### Stock
+
 
 ## Todos
 
-List of Todos
 
-## Examples
+

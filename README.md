@@ -38,7 +38,14 @@ market.SectorPerformance()
 
 ### Stock
 
+__Earnings__
+
+```python
+from PyInvestor.stock import Stock
+Stock.Earnings()
+```
 
 ## Todos
+
 
 
