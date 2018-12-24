@@ -67,6 +67,6 @@ AMZN.Earnings()
 
 As **PyInvestor** is a wrapper for the IEX API, we must provide:
 
-a. Data provided  for free by [IEX](https://iextrading.com/developer/). 
-View [IEX's Terms of Use](https://iextrading.com/api-exhibit-a/)
+> Data provided  for free by [IEX](https://iextrading.com/developer/). 
+> View [IEX's Terms of Use](https://iextrading.com/api-exhibit-a/)
 
