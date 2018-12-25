@@ -18,7 +18,8 @@ The documentation related to the details of the different methods of **PyInvesto
 
 As of now, **PyInvestor** is a wrapper for the IEX API. However, 
 we have the ambition to grow it and integrate several financial
-APIs into one single Python library, **PyInvestor**.
+APIs into one single Python library, **PyInvestor**. Now, some
+of the features are:
 
  - IEX Stocks app using the stocks endpoint;
  - Access to the OHLC of more than 7k stocks;
