@@ -69,6 +69,8 @@
         
             <li><a class="toctree-l3" href="#company">Company</a></li>
         
+            <li><a class="toctree-l3" href="#deep">Deep</a></li>
+        
             <li><a class="toctree-l3" href="#delayedquote">DelayedQuote</a></li>
         
             <li><a class="toctree-l3" href="#dividends">Dividends</a></li>
@@ -154,6 +156,17 @@ at the stock level.</p>
 <pre><code class="python">from PyInvestor.stock import Stock
 AMZN = Stock('AMZN')
 AMZN.Company()
+</code></pre>
+
+<h3 id="deep"><code>Deep</code></h3>
+<p><strong>Aim</strong></p>
+<blockquote>
+<p>Returns real-time depth of book quotations directly from IEX</p>
+</blockquote>
+<p><strong>Example</strong></p>
+<pre><code class="python">from PyInvestor.stock import Stock
+AMZN = Stock('AMZN')
+AMZN.Deep()
 </code></pre>
 
 <h3 id="delayedquote"><code>DelayedQuote</code></h3>
