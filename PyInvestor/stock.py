@@ -1,4 +1,5 @@
-from PyInvestor.utils import IEX_URL, timerange_split, timerange_chart , _endpoint, _correctdate
+# from PyInvestor.utils import IEX_URL, timerange_split, timerange_chart , _endpoint, _correctdate
+from utils import IEX_URL, timerange_split, timerange_chart , _endpoint, _correctdate
 import requests
 import pandas as pd
 import collections
@@ -29,6 +30,27 @@ class Stock:
         df = pd.DataFrame(response)
         df = df.drop(['tags'], axis=1)
         return df.drop_duplicates()
+
+    
+
+    def Deep(self):
+        """ Deep is used to receive real-time depth of book quotations directly from IEX.
+        """
+        request_url = "https://api.iextrading.com/1.0/deep?symbols=%s" %self.symbol
+        response = requests.get(request_url)
+        response_json = response.json()
+        dic = {
+            'volume': response_json['volume'],
+            'latestUpdate': response_json['lastUpdated'],
+            'bids': response_json['bids'][0]['price'],
+            'sizebids': response_json['bids'][0]['size'],
+            'asks': response_json['asks'][0]['price'],
+            'sizeasks': response_json['asks'][0]['size']
+            }
+        df = pd.DataFrame(dic, index=[0])
+        _correctdate(df)
+        return df
+        
     
 
     def DelayedQuote(self):

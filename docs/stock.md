@@ -18,6 +18,21 @@ AMZN = Stock('AMZN')
 AMZN.Company()
 ```
 
+
+### `Deep`
+
+__Aim__
+
+> Returns real-time depth of book quotations directly from IEX
+
+__Example__
+
+```python
+from PyInvestor.stock import Stock
+AMZN = Stock('AMZN')
+AMZN.Deep()
+```
+
 ### `DelayedQuote`
 
 __Aim__

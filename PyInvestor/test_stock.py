@@ -40,6 +40,11 @@ class StockTest(unittest.TestCase):
         AMZN.Stats()
 
 
+    def test_deep(self):
+        AMZN = Stock('AMZN')
+        AMZN.Deep()
+
+
     def test_largestrades(self):
         AMZN = Stock('AMZN')
         AMZN.LargestTrades()
