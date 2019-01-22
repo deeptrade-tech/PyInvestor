@@ -1,6 +1,6 @@
 Metadata-Version: 1.0
 Name: pyinvestor
-Version: 0.0.4
+Version: 0.0.5
 Summary: python wrapper for the IEX API
 Home-page: https://github.com/SamurAi-sarl/PyInvestor
 Author: SamurAI Sarl (Fabio Capela)

@@ -50,11 +50,7 @@ class Stock:
         except:
             dic = {
                 'volume': response_json['volume'],
-                'latestUpdate': response_json['lastUpdated'],
-                'bids': 0,
-                'sizebids': 0,
-                'asks': 0,
-                'sizeasks': 0
+                'latestUpdate': response_json['lastUpdated']
             }
         df = pd.DataFrame(dic, index=[0])
         _correctdate(df)
