@@ -1,0 +1,8 @@
+Deploy new documentation
+------------------------
+
+- change what must be changed in the directory docs/
+- if there is new pages, then put them in mkdocs.yml
+- commands:
+  > mkdocs build
+  > mkdocs gh-deploy

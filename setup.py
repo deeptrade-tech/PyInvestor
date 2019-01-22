@@ -8,7 +8,7 @@ required = [
     ]
 
 setuptools.setup(name = 'pyinvestor',
-                 version = "0.0.2",
+                 version = "0.0.3",
                  description = "python wrapper for the IEX API",
                  long_description = open('README.md').read().strip(),
                  author = 'SamurAI Sarl (Fabio Capela)',

@@ -1,6 +1,6 @@
 Metadata-Version: 1.0
 Name: pyinvestor
-Version: 0.0.2
+Version: 0.0.3
 Summary: python wrapper for the IEX API
 Home-page: https://github.com/SamurAi-sarl/PyInvestor
 Author: SamurAI Sarl (Fabio Capela)
@@ -26,7 +26,8 @@ Description: # PyInvestor
         
         As of now, **PyInvestor** is a wrapper for the IEX API. However, 
         we have the ambition to grow it and integrate several financial
-        APIs into one single Python library, **PyInvestor**.
+        APIs into one single Python library, **PyInvestor**. Now, some
+        of the features are:
         
          - IEX Stocks app using the stocks endpoint;
          - Access to the OHLC of more than 7k stocks;
@@ -85,5 +86,9 @@ Description: # PyInvestor
         
         > Data is provided  for free by [IEX](https://iextrading.com/developer/). 
         > View [IEX's Terms of Use](https://iextrading.com/api-exhibit-a/)
+        
+        ## Developers
+        Made with :heart: by [SamurAI](https://www.samurai.team/). Follow us on [Linkedin](https://www.linkedin.com/company/samurai-team/) to get the latest news first!
+        We're always happy to receive your feedback!
 Keywords: finance,trading,stock,IEX,API,market
 Platform: UNKNOWN
